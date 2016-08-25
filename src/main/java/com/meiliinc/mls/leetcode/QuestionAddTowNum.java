@@ -148,7 +148,6 @@ public class QuestionAddTowNum {
         ListNode listNode2 = new ListNode(0);
         ListNode res = addTwoNumbers(listNode1, listNode2);
         printListNode(res);
-    }1
- * Email:jiexiu@mogujie.com
+    }
 
 }
