@@ -13,6 +13,16 @@ package com.meiliinc.mls.leetcode;
  */
 public class RemoveValueInArray {
 
+    /**
+     * 算法原理分析:
+     * 1. 设置 i, j 两个下标都从0开始
+     * 2. 使用下标 i 遍历数组arr, 查找不等于target的数,
+     * 3. 将不等于target的数 arr[i] 赋值给 arr[j], j 前进一步
+     * 4. 当arr遍历完毕后, j 的值就是新数组的长度
+     * @param arr
+     * @param num
+     * @return
+     */
     private static int removeElem(int[] arr, int num) {
         int i  = 0, j = 0;
         for (i = 0; i < arr.length; i++) {
