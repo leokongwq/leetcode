@@ -1,6 +1,11 @@
 package com.meiliinc.mls.leetcode;
 
 /**
+ * 快速排序
+ * 最差时间复杂度为: O(n2)
+ * 平均时间复杂度为: O(n*lgN)
+ * 空间复杂度: O(lgN)~O(n)
+ * 稳定性: 不稳定
  * Created with IntelliJ IDEA.
  * User: jiexiu
  * Date: 16/8/17
