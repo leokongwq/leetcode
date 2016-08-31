@@ -59,6 +59,19 @@ public class RadixSort {
         return tmp % 10;
     }
 
+    private int getMax(int[] arr){
+        if (arr ==  null || arr.length == 0){
+            throw new IllegalArgumentException("参数不合法, 参数数字不能为null, 或长度无能为0");
+        }
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++){
+            if (arr[i] > max){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         extractDigit(48, 3);
 
