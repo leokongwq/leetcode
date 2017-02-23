@@ -2,10 +2,7 @@ package com.meiliinc.mls.blog;
 
 import jdk.management.resource.internal.inst.FileOutputStreamRMHooks;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -73,5 +70,18 @@ public class PrimeTest {
         long start = System.currentTimeMillis();
         test(2000000);
         System.out.println(System.currentTimeMillis() - start);
+
+
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>(1 << 30, 0.000075f);
+        for (int i = 1; i < 80530; i++){
+            map.put(i, i);
+        }
+        for (int i = 1; i < 10000; i++){
+            map.put(i, i);
+        }
+        System.out.println("map size = " + map.size());
+        System.out.println(Integer.MAX_VALUE);
+        int a = Integer.MAX_VALUE;
+        System.out.println(a);
     }
 }

@@ -15,7 +15,7 @@ public class Cpu50Percent {
             new Thread(new Runnable() {
                 public void run() {
                     while (true){
-                        System.out.println("I am busy");
+                        //System.out.println("I am busy");
                     }
                 }
             }).start();

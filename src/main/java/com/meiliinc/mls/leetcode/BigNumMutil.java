@@ -59,7 +59,7 @@ public class BigNumMutil {
 
     public static void main(String[] args) {
         System.out.println(bigMutil(12, 34));
-        Stack<Integer> stack = toBinaryBitArray(7, 2);
+        Stack<Integer> stack = toBinaryBitArray(18, 16);
         while (!stack.isEmpty()){
             System.out.print(stack.pop());
         }

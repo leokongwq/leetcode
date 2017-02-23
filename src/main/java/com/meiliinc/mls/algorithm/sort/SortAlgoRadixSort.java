@@ -1,4 +1,4 @@
-package com.meiliinc.mls.leetcode;
+package com.meiliinc.mls.algorithm.sort;
 
 /**
  * 基数排序
@@ -14,7 +14,7 @@ package com.meiliinc.mls.leetcode;
  * Time: 上午10:21
  * Email:jiexiu@mogujie.com
  */
-public class RadixSort {
+public class SortAlgoRadixSort {
 
     private static int[] radixSort(int[] arr, int digit){
         for (int i = 1; i <= digit; i++){

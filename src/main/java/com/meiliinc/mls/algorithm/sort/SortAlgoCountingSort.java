@@ -1,4 +1,4 @@
-package com.meiliinc.mls.leetcode;
+package com.meiliinc.mls.algorithm.sort;
 
 /**
  * 基数排序
@@ -8,7 +8,7 @@ package com.meiliinc.mls.leetcode;
  * Time: 下午6:38
  * Email:jiexiu@mogujie.com
  */
-public class CountingSort {
+public class SortAlgoCountingSort {
 
     /**
      * 计数排序

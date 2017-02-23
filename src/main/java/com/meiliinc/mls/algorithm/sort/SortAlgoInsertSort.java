@@ -1,4 +1,4 @@
-package com.meiliinc.mls.leetcode;
+package com.meiliinc.mls.algorithm.sort;
 
 /**
  * 插入排序
@@ -12,8 +12,7 @@ package com.meiliinc.mls.leetcode;
  * Time: 下午9:58
  * Email:jiexiu@mogujie.com
  */
-public class InsertSort {
-
+public class SortAlgoInsertSort {
     /**
      * 插入排序
      * @param arr
@@ -39,6 +38,26 @@ public class InsertSort {
             arr[k+1] = tmp;
             // 4 3 2 1
             j++;
+        }
+        return arr;
+    }
+
+    /**
+     * 插入排序
+     * @param arr
+     * @return
+     */
+    public static int[] insertSortV1(int[] arr){
+        int len = arr.length;
+        int i, j;
+        int temp;
+        for (i = 1; i < len; i++) {
+            temp = arr[i]; //與已排序的數逐一比較，大於temp時，該數向後移
+            j = i - 1;  // 如果将赋值放到下一行的for循环内, 会导致在第10行出现j未声明的错误
+            for (; j >= 0 && arr[j] > temp; j--) { //j循环到-1时，由于[[短路求值]](http://zh.wikipedia.org/wiki/短路求值)，不会运算array[-1]
+                arr[j + 1] = arr[j];
+            }
+            arr[j + 1] = temp; //被排序数放到正确的位置
         }
         return arr;
     }

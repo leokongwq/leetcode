@@ -1,4 +1,4 @@
-package com.meiliinc.mls.leetcode;
+package com.meiliinc.mls.algorithm.sort;
 
 /**
  *
@@ -13,7 +13,7 @@ package com.meiliinc.mls.leetcode;
  * Time: 下午10:45
  * Email:jiexiu@mogujie.com
  */
-public class BubbleSort {
+public class SortAlgoBubbleSort {
 
     public static int[] bubbleSort(int[] arr){
         int n = arr.length;
@@ -29,9 +29,31 @@ public class BubbleSort {
         return arr;
     }
 
+    /**
+     * 冒泡排序总共需要比较n-1轮(最后一轮只有一个元素,没有比较的必要),每一轮只能将一个元素归位
+     * 每一轮都需要将该轮(idx - 1)位置的元素和所有未归位的元素进行一一比较。
+     * @param arr
+     * @return
+     */
+    public static int[] bubbleSortV1(int[] arr){
+        for (int i = 0; i < arr.length - 1; i++){
+            for (int j = i; j < arr.length - 1; j++){
+                if (arr[j] > arr[j+1]){
+                    int tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+                }
+            }
+        }
+        return arr;
+    }
+
     public static void main(String[] args) {
         int[] arr = new int[]{4, 3, 2, 1};
         arr = bubbleSort(arr);
+        System.out.println(arr);
+
+        arr = bubbleSortV1(arr);
         System.out.println(arr);
     }
 }

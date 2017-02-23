@@ -1,4 +1,4 @@
-package com.meiliinc.mls.leetcode;
+package com.meiliinc.mls.algorithm.sort;
 
 /**
  *
@@ -12,7 +12,7 @@ package com.meiliinc.mls.leetcode;
  * Time: 下午10:12
  * Email:jiexiu@mogujie.com
  */
-public class MergeSort {
+public class SortAlgoMergeSort {
 
     /**
      * //将有二个有序数列a[start ... mid]和a[mid ... end]合并。

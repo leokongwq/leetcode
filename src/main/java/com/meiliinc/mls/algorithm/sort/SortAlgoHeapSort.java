@@ -1,4 +1,4 @@
-package com.meiliinc.mls.leetcode;
+package com.meiliinc.mls.algorithm.sort;
 
 /**
  * 堆排序
@@ -8,7 +8,7 @@ package com.meiliinc.mls.leetcode;
  * Time: 下午4:22
  * Email:jiexiu@mogujie.com
  */
-public class HeapSort {
+public class SortAlgoHeapSort {
 
     /**
      * 移动节点i

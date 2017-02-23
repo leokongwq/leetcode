@@ -1,6 +1,4 @@
-package com.meiliinc.mls.leetcode;
-
-import java.util.Arrays;
+package com.meiliinc.mls.algorithm.sort;
 
 /**
  * 桶排序
@@ -10,7 +8,7 @@ import java.util.Arrays;
  * Time: 上午10:06
  * Email:jiexiu@mogujie.com
  */
-public class BucketSort {
+public class SortAlgoBucketSort {
     /**
      * 算法基本思想: 桶排序的思想近乎彻底的分治思想。假设现在需要对一亿个数进行排序。
      * 我们可以将其等长地分到10000个虚拟的“桶”里面，这样，平均每个桶只有10000个数。
@@ -48,15 +46,15 @@ public class BucketSort {
 
         //对每个桶进行排序
         //小桶排序
-        for (int i=0; i<buckets.length; i++){
+        for (int i = 0; i < buckets.length; i++){
             //insertion sort
-            for (int j=1; j<buckets[i].length; ++j){
-                if(buckets[i][j]==null){
+            for (int j = 1; j < buckets[i].length; ++j){
+                if(buckets[i][j] == null){
                     break;
                 }
                 int value = buckets[i][j];
-                int position=j;
-                while (position>0 && buckets[i][position-1]>value){
+                int position = j;
+                while (position > 0 && buckets[i][position-1] > value){
                     buckets[i][position] = buckets[i][position-1];
                     position--;
                 }
@@ -76,9 +74,14 @@ public class BucketSort {
         return arr;
     }
 
+    private static void printArray(int[] arr){
+        for (int num : arr){
+            System.out.printf("%d,", num);
+        }
+    }
     public static void main(String[] args) {
         int[] arr = new int[]{3,1,41,62,73,22};
         arr = bucketSort(arr);
-        System.out.println(arr);
+        printArray(arr);
     }
 }

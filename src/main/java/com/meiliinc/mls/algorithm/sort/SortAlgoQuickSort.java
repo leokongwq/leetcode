@@ -1,4 +1,4 @@
-package com.meiliinc.mls.leetcode;
+package com.meiliinc.mls.algorithm.sort;
 
 /**
  * 快速排序
@@ -12,7 +12,7 @@ package com.meiliinc.mls.leetcode;
  * Time: 下午12:18
  * Email:jiexiu@mogujie.com
  */
-public class QuickSort {
+public class SortAlgoQuickSort {
     /**
      *
      * @param arr
@@ -20,9 +20,9 @@ public class QuickSort {
      * @param right
      * @return
      */
-    public static int[] quickSort(int[] arr, int left, int right){
+    public static void quickSort(int[] arr, int left, int right){
         if (left > right){
-            return arr;
+            return;
         }
         int i = left;
         int j = right;
@@ -49,7 +49,6 @@ public class QuickSort {
         //处理2个子序列
         quickSort(arr, left, i - 1);
         quickSort(arr, i + 1, right);
-        return arr;
     }
 
     public static void swap(int[] arr, int i, int j){
@@ -60,8 +59,8 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] arr = new int[]{6,1,2,7,9,3,4,5,10,8};
-        int[] result = quickSort(arr, 0, arr.length - 1);
-        for (int i : result){
+        quickSort(arr, 0, arr.length - 1);
+        for (int i : arr){
             System.out.printf("%d,", i);
         }
         System.out.println();
