@@ -1,0 +1,12 @@
+package com.leokongwq.designPatterns.factoryMethod;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: jiexiu
+ * Date: 16/11/26
+ * Time: 上午11:42
+ * Email:leokongwq@gmail.com
+ */
+public interface Factory {
+    public Product createProduct();
+}
