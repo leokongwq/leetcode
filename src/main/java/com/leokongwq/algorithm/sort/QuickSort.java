@@ -60,6 +60,7 @@ public class QuickSort {
 
     /**
      * wikipedia
+     * 下面的算法实现不是稳定的排序算法
      */
     private static void qSort(int[] arr, int head, int tail) {
         if (head >= tail || arr == null || arr.length <= 1) {
