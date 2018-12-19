@@ -12,14 +12,14 @@ import java.util.Map;
  * Time: 下午12:23
  * Email:leokongwq@gmail.com
  */
-public class QuestionTowNumSum {
+public class Question_1_TowNumSum {
     /**
      * 首先能想到的办法, 简单暴力,但是时间复杂度是O(n2)
      * @param nums 待查询数组
      * @param target 目标数字
      * @return int[] 下标数组
      */
-    public static int[] twoSumV1(int[] nums, int target) {
+    private static int[] twoSumV1(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++){
             for (int j = i + 1; j < nums.length; j++){
                 if (nums[j] == target - nums[i]) {
@@ -37,15 +37,16 @@ public class QuestionTowNumSum {
      * @param target 目标数字
      * @return int[] 下标数组
      */
-    public static int[] twoSumV2(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i);
-        }
+    private static int[] twoSumV2(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
+            //不是同一个数
             if (map.containsKey(complement) && map.get(complement) != i) {
                 return new int[] { i, map.get(complement) };
+            } else {
+                map.put(nums[i], i);
             }
         }
         return null;
@@ -53,12 +54,9 @@ public class QuestionTowNumSum {
 
     /**
      * 不用单独将所有的元素放入map, 边遍历,边插入
-     * @param nums
-     * @param target
-     * @return
      */
-    public static int[] twoSumV3(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    private static int[] twoSumV3(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
             if (map.containsKey(complement)) {
@@ -69,17 +67,53 @@ public class QuestionTowNumSum {
         throw new IllegalArgumentException("No two sum solution");
     }
 
+    /**
+     * a + b + c = 0;
+     */
+    private static void threeSum(int[] nums, int target) {
+        if (nums == null || nums.length < 3) {
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            //固定第一个数, 从剩余的数组中计算:tow sum
+            int a = nums[i];
+            int towSum = target - a;
+
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int j = 0; j < nums.length; j++) {
+                if (nums[j] == a) {
+                    continue;
+                }
+                int complement = towSum - nums[j];
+                if (map.containsKey(complement)) {
+                    System.out.println(a + " + " + nums[j] + " + " + nums[map.get(complement)] + " = " + target);
+                } else {
+                    map.put(nums[j], j);
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] arr = new int[]{2, 7, 11, 4, 15, 4};
+
         long start = System.currentTimeMillis();
         int[] result = twoSumV1(arr, 9);
-        long end = System.currentTimeMillis();
-        System.out.println("耗时: " + (end  - start));
-        System.out.println(result);
+        System.out.println(result[0] + "+" + result[1]);
+        System.out.println("耗时: " + (System.currentTimeMillis()  - start));
+
         start = System.currentTimeMillis();
-        int[] result3 = twoSumV2(arr, 8);
-        end = System.currentTimeMillis();
-        System.out.println("耗时: " + (end  - start));
-        System.out.println(result3);
+        result = twoSumV2(arr, 8);
+        System.out.println("耗时: " + (System.currentTimeMillis()  - start));
+        System.out.println(result[0] + "+" + result[1]);
+
+        result = twoSumV3(arr, 11);
+        System.out.println("耗时: " + (System.currentTimeMillis()  - start));
+        System.out.println(result[0] + "+" + result[1]);
+
+        System.out.println();
+
+        threeSum(arr, 15);
     }
 }

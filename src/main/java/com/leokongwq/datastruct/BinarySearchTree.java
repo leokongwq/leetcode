@@ -14,55 +14,53 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
      */
     private BinaryNode<T> root;
 
-    public BinarySearchTree(){
+    /**
+     * 是否是空树
+     */
+    public boolean isEmpty() {
+        return root == null;
     }
 
     /**
-     * 是否是空树
-     * @return
-     */
-    public boolean isEmpty(){
-        return root == null;
-    }
-    /**
      * 是否包含指定的元素
-     * @param data
-     * @return
      */
-    public boolean contains(T data){
+    public boolean contains(T data) {
         return containsInternal(root, data);
     }
 
-    private boolean containsInternal(BinaryNode<T> node, T data){
-        if (node == null){
+    private boolean containsInternal(BinaryNode<T> node, T data) {
+        if (node == null) {
             return false;
         }
         int result = node.data.compareTo(data);
-        if (result < 0){
+        if (result < 0) {
             return containsInternal(node.right, data);
-        } else  if (result > 0){
+        } else if (result > 0) {
             return containsInternal(node.left, data);
-        }else {
+        } else {
             return true;
         }
     }
 
     /**
      * 查找最小的数据项
-     * @return
      */
-    public  T  findMin(){
-        if (isEmpty()){
+    public T findMin() {
+        if (isEmpty()) {
             return null;
         }
         return findMinInternal(root).data;
     }
 
-    private BinaryNode<T> findMinInternal(BinaryNode<T> node){
-        if (node == null){
+    /**
+     * 最小节点肯定是左子树上的节点
+     * @param node 待查找的树节点
+     */
+    private BinaryNode<T> findMinInternal(BinaryNode<T> node) {
+        if (node == null) {
             return null;
         }
-        if (node.left == null){
+        if (node.left == null) {
             return node;
         }
         return findMinInternal(node.left);
@@ -70,17 +68,21 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
     /**
      * 查找最大的数据项
+     *
      * @return
      */
-    public T findMax(){
-        if (isEmpty()){
+    public T findMax() {
+        if (isEmpty()) {
             return null;
         }
         return findMaxInternal(root).data;
     }
 
-    private BinaryNode<T> findMaxInternal(BinaryNode<T> node){
-        if (node == null){
+    /**
+     * 最大肯定是右节点
+     */
+    private BinaryNode<T> findMaxInternal(BinaryNode<T> node) {
+        if (node == null) {
             return null;
         }
 //        非递归的实现方式
@@ -90,34 +92,32 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 //            }
 //        }
 //        return node;
-        if (node.right == null){
+        if (node.right == null) {
             return node;
         }
         return findMaxInternal(node.right);
     }
 
-    public boolean insert(T data){
+    public boolean insert(T data) {
+        //插入根节点 root 需要赋值
         this.root = this.insertInternal(root, data);
         return true;
     }
 
     /**
      * 将元素 data 插入到树中
-     * @param node
-     * @param data
-     * @return
      */
-    private BinaryNode<T> insertInternal(BinaryNode<T> node, T data){
-        if (node == null){
+    private BinaryNode<T> insertInternal(BinaryNode<T> node, T data) {
+        if (node == null) {
             //可以是根节点, 或者新插入的节点
             return new BinaryNode<T>(data, null, null);
         }
         int result = data.compareTo(node.data);
         if (result > 0) {
             node.right = insertInternal(node.right, data);
-        }else if (result < 0){
+        } else if (result < 0) {
             node.left = insertInternal(node.left, data);
-        }else {
+        } else {
             //什么都不做, 返回老的节点(也可以在节点的附加域上加一)
         }
         return node;
@@ -125,16 +125,17 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
     /**
      * 删除参数data指定的数据项
+     *
      * @param data
      * @return
      */
-    public boolean remove(T data){
+    public boolean remove(T data) {
         BinaryNode<T> node = removeInternal(root, data);
         return node != null;
     }
 
-    private BinaryNode<T> removeInternal(BinaryNode<T> node , T data){
-        if (node == null){
+    private BinaryNode<T> removeInternal(BinaryNode<T> node, T data) {
+        if (node == null) {
             return null;
         }
         int result = data.compareTo(node.data);
@@ -142,17 +143,17 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
             //待删除的节点在节点node的左子树, 节点node的左孩子赋值为删除目标元素后的替代节点
             //每次的调用可以将node看做是只有2个叶子节点的树
             node.left = removeInternal(node.left, data);
-        }else if (result > 0){
+        } else if (result > 0) {
             node.right = removeInternal(node.right, data);
-        }else {
+        } else {
             //有2个子节点
-            if (node.left != null && node.right != null){
+            if (node.left != null && node.right != null) {
                 //查找左子树中的最大节点
                 BinaryNode<T> leftMaxNode = findMaxInternal(node.left);
                 //删除该节点(左子树中的最大节点)
                 removeInternal(node.left, leftMaxNode.data);
                 node.data = leftMaxNode.data;
-            }else {
+            } else {
                 // 有一个子节点, 将左孩子或右孩子提升
                 node = node.left != null ? node.left : node.right;
             }
@@ -165,7 +166,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         private BinaryNode<T> left;
         private BinaryNode<T> right;
 
-        public BinaryNode(T data){
+        public BinaryNode(T data) {
             this(data, null, null);
         }
 

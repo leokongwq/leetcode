@@ -15,37 +15,27 @@ public class BinaryTree<T extends Comparable> {
 
     private TreeNode<T> root;
 
-    public BinaryTree(){
-    }
-
-    public BinaryTree(TreeNode<T> root){
-        this.root = root;
-    }
-
-    public BinaryTree(T data){
-        this.root = new TreeNode<T>(data, null, null);
-    }
-
     /**
      * 添加节点到树
+     *
      * @param data 要添加的数据
-     * @return  返回最新添加的树节点
+     * @return 返回最新添加的树节点
      */
-    public void add(T data){
-        if (this.root == null){
+    public void add(T data) {
+        if (this.root == null) {
             this.root = new TreeNode<T>(data, null, null);
             return;
         }
         addInternal(this.root, data);
     }
 
-    private TreeNode<T> addInternal(TreeNode<T> node, T data){
-        if (node == null){
+    private TreeNode<T> addInternal(TreeNode<T> node, T data) {
+        if (node == null) {
             node = new TreeNode<T>(data, null, null);
         }
-        if (node.data.compareTo(data) > 0 ){
+        if (node.data.compareTo(data) > 0) {
             node.left = addInternal(node.left, data);
-        } else if (node.data.compareTo(data) < 0){
+        } else if (node.data.compareTo(data) < 0) {
             node.right = addInternal(node.right, data);
         }
         return node;
@@ -53,12 +43,13 @@ public class BinaryTree<T extends Comparable> {
 
     /**
      * 范围查询
+     *
      * @param min
      * @param max
      * @return
      */
-    public List<T> rangeSearch(T min, T max){
-        if (this.root == null){
+    public List<T> rangeSearch(T min, T max) {
+        if (this.root == null) {
             return Collections.emptyList();
         }
         List<T> result = new LinkedList<T>();
@@ -66,54 +57,55 @@ public class BinaryTree<T extends Comparable> {
         return result;
     }
 
-    private void rangeSearch(TreeNode<T> tree, T min, T max, List<T> result){
-        if (tree == null){
+    private void rangeSearch(TreeNode<T> tree, T min, T max, List<T> result) {
+        if (tree == null) {
             return;
         }
         //遍历左子树查询下限
-        if (min.compareTo(tree.data) < 0){
+        if (min.compareTo(tree.data) < 0) {
             rangeSearch(tree.left, min, max, result);
         }
         //在查找范围内
-        if (tree.data.compareTo(min) >= 0 && tree.data.compareTo(max) <= 0){
+        if (tree.data.compareTo(min) >= 0 && tree.data.compareTo(max) <= 0) {
             result.add(tree.data);
         }
         //遍历右子树（两种情况：1:找min的下限 2：必须在Max范围之内）
-        if (min.compareTo(tree.data) > 0 || max.compareTo(tree.data) > 0){
+        if (min.compareTo(tree.data) > 0 || max.compareTo(tree.data) > 0) {
             rangeSearch(tree.right, min, max, result);
         }
     }
 
     /**
      * 删除元素
+     *
      * @param data
      */
-    public void remove(T data){
+    public void remove(T data) {
         TreeNode<T> tmp = this.removeInternal(this.root, data);
     }
 
-    private TreeNode<T> removeInternal(TreeNode<T> node, T data){
-        if (node == null){
+    private TreeNode<T> removeInternal(TreeNode<T> node, T data) {
+        if (node == null) {
             return null;
         }
         //左子树
-        if (data.compareTo(node.data) < 0){
+        if (data.compareTo(node.data) < 0) {
             node.left = removeInternal(node.left, data);
         }
         //右子树
-        if (data.compareTo(node.data) > 0){
+        if (data.compareTo(node.data) > 0) {
             node.right = removeInternal(node.right, data);
         }
         //相等
-        if (data.compareTo(node.data) == 0){
-            if (node.left != null && node.right != null){
+        if (data.compareTo(node.data) == 0) {
+            if (node.left != null && node.right != null) {
                 //查找左子树中最大的节点
                 TreeNode<T> destNode = findMax(node.left);
                 //删除被移动的节点
                 removeInternal(node.left, destNode.data);
                 //赋值即可
                 node.data = destNode.data;
-            }else {
+            } else {
                 node = node.left != null ? node.left : node.right;
             }
         }
@@ -122,14 +114,15 @@ public class BinaryTree<T extends Comparable> {
 
     /**
      * 查找以参数root指定节点为根节点的二叉搜索树中值最大的节点
+     *
      * @param node
      * @return
      */
-    private TreeNode<T> findMax(TreeNode<T> node){
-        if (node == null){
+    private TreeNode<T> findMax(TreeNode<T> node) {
+        if (node == null) {
             return null;
         }
-        while (node.right != null){
+        while (node.right != null) {
             node = node.right;
             findMax(node);
         }
@@ -139,8 +132,8 @@ public class BinaryTree<T extends Comparable> {
     /**
      * 前序遍历(根-》左 -》右)
      */
-    public void rootLeftRightPrintTree(TreeNode treeNode){
-        if (treeNode == null){
+    public void rootLeftRightPrintTree(TreeNode treeNode) {
+        if (treeNode == null) {
             return;
         }
         //先访问根节点
@@ -154,8 +147,8 @@ public class BinaryTree<T extends Comparable> {
     /**
      * 中序遍历(左-》根 -》右)
      */
-    public void leftRootRightPrintTree(TreeNode treeNode){
-        if (treeNode == null){
+    public void leftRootRightPrintTree(TreeNode treeNode) {
+        if (treeNode == null) {
             return;
         }
         //访问左子树
@@ -169,8 +162,8 @@ public class BinaryTree<T extends Comparable> {
     /**
      * 后序遍历(左-》右 -》根)
      */
-    public void leftRightRootPrintTree(TreeNode treeNode){
-        if (treeNode == null){
+    public void leftRightRootPrintTree(TreeNode treeNode) {
+        if (treeNode == null) {
             return;
         }
         //访问左子树
@@ -183,9 +176,10 @@ public class BinaryTree<T extends Comparable> {
 
     /**
      * 层级遍历
+     *
      * @param treeNode
      */
-    public void levelPrintTree(TreeNode treeNode){
+    public void levelPrintTree(TreeNode treeNode) {
         System.out.print(treeNode.data + ",");
         System.out.print(treeNode.left.data + ",");
         System.out.print(treeNode.right.data + ",");
@@ -200,10 +194,10 @@ public class BinaryTree<T extends Comparable> {
 
         private TreeNode<T> right;
 
-        public TreeNode(){
+        public TreeNode() {
         }
 
-        public TreeNode(T data){
+        public TreeNode(T data) {
             this.data = data;
         }
 
