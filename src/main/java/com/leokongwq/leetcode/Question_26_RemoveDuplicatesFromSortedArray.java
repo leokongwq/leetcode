@@ -39,9 +39,16 @@ package com.leokongwq.leetcode;
  * print(nums[i]);
  * }
  */
-public class Question_28_RemoveDuplicatesFromSortedArray {
+public class Question_26_RemoveDuplicatesFromSortedArray {
 
-
+    /**
+     * 删除重复出现的多个元素，重复元素只保留一个。返回结果数组的长度。
+     *
+     * 解法： 从下标1开始，只要当前元素和前一个元素的值相同，那么就从当前下标开始，
+     * 将所有后续的元素前移。每次移动元素后，长度值：减一
+     *
+     * 该解法非常简单，但是没有充分利用数组元素的有序性。导致元素移动次数过多
+     */
     public static int removeDuplicates(int[] nums) {
         if (nums == null) {
             return 0;
@@ -61,9 +68,19 @@ public class Question_28_RemoveDuplicatesFromSortedArray {
         return len;
     }
 
-    public static int removeDuplicatesV1(int[] nums) {
-        if (nums.length == 0) return 0;
-        if (nums.length == 1) return 1;
+    /**
+     * 下面解法效率很高，利用了数组元素的有序性。
+     * 1. 每次查询到不同的元素，就赋值到数组的最前面。
+     * 2. 因为第一个元素前面肯定没有和它相同的元素，所以第一次赋值 ++w
+     * 3. 最差的情况下（没有重复元素）需要进行 N - 1 次赋值。
+     */
+    private static int removeDuplicatesV1(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return 1;
+        }
 
         int w = 0;
         for (int r = 1; r < nums.length; r++) {
