@@ -7,6 +7,9 @@ package com.leokongwq.algorithm.sort;
  * 平均时间复杂度为: O(n2)
  * 空间复杂度: O(1)
  * 稳定性: 稳定
+ *
+ * 冒泡排序的实现通常会对已经排序好的数列拙劣地运行 O(n2)
+ * 而插入排序在这个例子只需要O(n)个运算. 因此工程中通常使用插入排序替代冒泡排序
  * Created with IntelliJ IDEA.
  * User: jiexiu
  * Date: 16/8/26

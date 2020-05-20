@@ -3,6 +3,7 @@ package com.leokongwq.datastruct;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -177,14 +178,23 @@ public class BinaryTree<T extends Comparable> {
     /**
      * 层级遍历
      *
-     * @param treeNode
+     * @param root 根节点
      */
-    public void levelPrintTree(TreeNode treeNode) {
-        System.out.print(treeNode.data + ",");
-        System.out.print(treeNode.left.data + ",");
-        System.out.print(treeNode.right.data + ",");
-        levelPrintTree(treeNode.left);
-        levelPrintTree(treeNode.right);
+    public void levelPrintTree(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.addLast(root);
+        while (!queue.isEmpty()) {
+            System.out.println(queue.removeFirst());
+            if (root.left != null) {
+                queue.addLast(root.left);
+            }
+            if (root.right != null) {
+                queue.addLast(root.right);
+            }
+        }
     }
 
     private static class TreeNode<T extends Comparable> {
