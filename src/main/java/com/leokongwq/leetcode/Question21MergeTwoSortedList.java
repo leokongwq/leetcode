@@ -18,7 +18,7 @@ package com.leokongwq.leetcode;
  * ListNode(int x) { val = x; }
  * }
  */
-public class Question_21_MergeTwoSortedList {
+public class Question21MergeTwoSortedList {
 
     private static class ListNode {
 

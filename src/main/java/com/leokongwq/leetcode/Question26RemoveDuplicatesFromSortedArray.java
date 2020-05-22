@@ -39,7 +39,7 @@ package com.leokongwq.leetcode;
  * print(nums[i]);
  * }
  */
-public class Question_26_RemoveDuplicatesFromSortedArray {
+public class Question26RemoveDuplicatesFromSortedArray {
 
     /**
      * 删除重复出现的多个元素，重复元素只保留一个。返回结果数组的长度。

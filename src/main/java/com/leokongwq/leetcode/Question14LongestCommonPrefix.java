@@ -21,7 +21,7 @@ package com.leokongwq.leetcode;
  *
  * All given inputs are in lowercase letters a-z.
  */
-public class Question_14_LongestCommonPrefix {
+public class Question14LongestCommonPrefix {
 
     public static String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) {

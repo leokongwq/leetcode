@@ -7,7 +7,7 @@ package com.leokongwq.leetcode;
  * Given an integer, convert it to a roman numeral.
  * Input is guaranteed to be within the range from 1 to 3999.
  */
-public class Question_14_IntegerToRoman {
+public class Question14IntegerToRoman {
 
     /**
      * 例如整数 1437 的罗马数字为 MCDXXXVII， 我们不难发现，千位，百位，十位和个位上的数分别用罗马数字表示了。

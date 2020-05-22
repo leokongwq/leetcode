@@ -12,7 +12,7 @@ import java.util.Map;
  * Time: 下午12:23
  * Email:leokongwq@gmail.com
  */
-public class Question_1_TowNumSum {
+public class Question1TowNumSum {
     /**
      * 首先能想到的办法, 简单暴力,但是时间复杂度是O(n2)
      * @param nums 待查询数组

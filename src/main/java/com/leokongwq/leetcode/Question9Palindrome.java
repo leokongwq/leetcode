@@ -9,13 +9,13 @@ package com.leokongwq.leetcode;
  * -121 false
  * 10 false
  */
-public class Question_9_Palindrome {
+public class Question9Palindrome {
 
     private static boolean isPalindrome(int x) {
         if (x <= 0) {
             return false;
         }
-        int reversNum = Question_7_ReversInteger.reverse(x);
+        int reversNum = Question7ReversInteger.reverse(x);
         return reversNum == x;
     }
 

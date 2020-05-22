@@ -30,7 +30,7 @@ package com.leokongwq.leetcode;
  * Input: 4
  * Output: "1211"
  */
-public class Question_38_CountAndSay {
+public class Question38CountAndSay {
 
     /**
      * 该为题的求解，很容易想到用递归解决。但前提是必须理解题目的意思。

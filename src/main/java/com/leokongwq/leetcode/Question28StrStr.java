@@ -27,7 +27,7 @@ import java.util.Map;
  *
  * 其他实现方式参考： https://www.zhihu.com/question/27852656
  */
-public class Question_28_StrStr {
+public class Question28StrStr {
 
     private static int strStr(String haystack, String needle) {
         if (needle == null || "".equals(needle)) {

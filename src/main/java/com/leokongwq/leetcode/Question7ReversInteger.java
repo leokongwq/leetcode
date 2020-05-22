@@ -5,7 +5,7 @@ package com.leokongwq.leetcode;
  * created 2018/12/13 - 20:30
  * 翻转整数 123 -> 321
  */
-public class Question_7_ReversInteger {
+public class Question7ReversInteger {
 
     public static int reverse(int x) {
         if (x == Integer.MAX_VALUE || x == Integer.MIN_VALUE) {
