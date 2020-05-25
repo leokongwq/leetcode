@@ -42,7 +42,7 @@ public class ArrayQueue {
             if (head == 0) {
                 return false;
             }
-            // 移动元素
+            // 移动元素, tail表示的是待入队的位置
             for (int i = head; i < tail; i++) {
                 items[i - head] = items[i];
             }

@@ -21,13 +21,13 @@ public class QuickSort {
      */
     private static void quickSort(int[] arr, int left, int right) {
         //递归退出条件
-        if (arr == null || arr.length == 1 || left > right) {
+        if (arr == null || arr.length == 1 || left >= right) {
             return;
         }
         int i = left;
         int j = right;
         //选择基准数
-        int pivot = arr[i];
+        int pivot = arr[left];
         //基数
         //2个哨兵没有相遇
         while (i != j) {
@@ -89,7 +89,9 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{6, 1, 2, 7, 9, 3, 4, 5, 10, 8};
+//        int[] arr = new int[]{6, 1, 2, 7, 9, 3, 4, 5, 10, 8};
+        int[] arr = new int[]{2, 1};
+
 //        quickSort(arr, 0, arr.length - 1);
         qSort(arr, 0, arr.length - 1);
         for (int i : arr) {
