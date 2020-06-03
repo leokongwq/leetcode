@@ -22,7 +22,7 @@ public class BinarySearch {
         //必须是 <= , 因为会查找到数组第一个和最后一个元素
         while (low <= high) {
             //防止溢出， 不能使用 (low + high) / 2 这种计算方法
-            int mid = low + (high - low) / 2;
+            int mid = low + ((high - low) >> 1);
             if (arr[mid] > target) {
                 high = mid - 1;
             } else if (arr[mid] < target) {
@@ -141,6 +141,37 @@ public class BinarySearch {
             }
         }
         return -1;
+    }
+
+    /**
+     * 求平方根
+     */
+    private static double sqrt(double x, double precision) {
+        if (x < 0) {
+            return Double.NaN;
+        }
+
+        double low = 0;
+        double up = x;
+        if (x < 1 && x > 0) {
+            //小于1的时候
+            low = x;
+            up = 1;
+        }
+
+        double mid = low + (up - low) / 2;
+        while (up - low > precision) {
+            //TODO mid可能会溢出
+            if (mid * mid > x) {
+                up = mid;
+            } else if (mid * mid < x) {
+                low = mid;
+            } else {
+                return mid;
+            }
+            mid = low + (up - low) / 2;
+        }
+        return mid;
     }
 
     public static void main(String[] args) {

@@ -20,7 +20,11 @@ public class SelectionSort {
     private static void selectSort(int[] arr, int n) {
 
         int minIdx = 0;
-
+        /*
+         下标 i 将待排序元素分隔为两部分：
+         1. 小于 i 的是已经排序的部分
+         2. 大于等于 i 的是待排序部分
+         */
         for (int i = 0; i < n - 1; i++) {
             //查找待排序序列的最小值
             minIdx = i;
