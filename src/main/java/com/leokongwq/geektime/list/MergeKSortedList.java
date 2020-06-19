@@ -106,7 +106,31 @@ public class MergeKSortedList {
 	}
 
 	/**
-	 *
+	 * 采用分治法 两两合并
+	 * 迭代
+	 */
+	private static ListNode mergeKListsV41(ListNode[] lists) {
+		if (lists.length == 0) {
+			return null;
+		}
+		int k = lists.length;
+		while (k > 1) {
+			int idx = 0;
+			for (int i = 0; i < k; i += 2) {
+				if (i == k - 1) {
+					lists[idx++] = lists[i];
+				} else {
+					lists[idx++] = mergeSortedList(lists[i], lists[i + 1]);
+				}
+			}
+			k = idx;
+		}
+		return lists[0];
+	}
+
+	/**
+	 *  时间复杂度 O(NlogK)
+	 *  空间复杂度 O(k)
 	 */
 	private static ListNode mergeKListsV5(ListNode[] lists) {
 		if (lists == null || lists.length == 0) {

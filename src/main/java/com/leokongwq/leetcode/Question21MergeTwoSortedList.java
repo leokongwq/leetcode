@@ -110,6 +110,21 @@ public class Question21MergeTwoSortedList {
         return head.next;
     }
 
+    private ListNode merge2ListsV2(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+        if (l1.val < l2.val) {
+            l1.next = merge2ListsV2(l1.next, l2);
+            return l1;
+        }
+        l2.next = merge2ListsV2(l1, l2.next);
+        return l2;
+    }
+
     public static void main(String[] args) {
         ListNode a = new ListNode(1);
         a.next = new ListNode(4);
