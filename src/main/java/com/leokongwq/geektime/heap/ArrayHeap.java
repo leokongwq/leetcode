@@ -1,5 +1,7 @@
 package com.leokongwq.geektime.heap;
 
+import com.leokongwq.geektime.Printer;
+
 /**
  * @author : jiexiu
  * @date : 2020-06-18 18:18
@@ -48,8 +50,9 @@ public class ArrayHeap {
 
 	/**
 	 * 自上往下堆化
+	 * 构造的是一个大顶堆
 	 */
-	private void heapify(int[] a, int n, int i) {
+	private static void heapify(int[] a, int n, int i) {
 		while (true) {
 			//找到 i 的左右子节点中的最大值，并进行交换
 			int maxPos = i;
@@ -68,7 +71,7 @@ public class ArrayHeap {
 		}
 	}
 
-	private void swap(int[] arr, int i, int j) {
+	private static void swap(int[] arr, int i, int j) {
 		int temp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = temp;
@@ -93,8 +96,9 @@ public class ArrayHeap {
 	 * 对于完全二叉树来说，下标从 n/2 ​+ 1 到 n 的节点都是叶子节点。
 	 * 注意： 这里 i = 0 是空的，不适用，方便编程。
 	 * 堆排序的建堆过程的时间复杂度是 O(n)
+	 * 这个构造的是一个大顶堆
 	 */
-	private void buildHeapV2(int[] arr, int n) {
+	private static void buildHeapV2(int[] arr, int n) {
 		// n / 2 是第最后一个非叶子节点
 		for (int i = n / 2; i >= 1; --i) {
 			heapify(arr, n, i);
@@ -104,8 +108,13 @@ public class ArrayHeap {
 
 	/**
 	 * n表示数据的个数，数组a中的数据从下标1到n的位置。
+	 * 堆排序步骤：
+	 * 1. 将数组堆化，构造一个大顶堆 （原因是结果升序排列，否则构造小顶堆）
+	 * 2. 将第一步得到的堆化数组中第一个元素和最后一个元素进行交换，那么相当于最大的元素已经归位
+	 * 3. 调整目前堆定元素到合适位置，调整后，堆定元素就是第二大的元素了。
+	 * 4. 重复执行 2->3 步骤，直到遇到数组第一个元素时停止
 	 */
-	public void sort(int[] a, int n) {
+	private static void sort(int[] a, int n) {
 		buildHeapV2(a, n);
 		int k = n;
 		while (k > 1) {
@@ -113,5 +122,11 @@ public class ArrayHeap {
 			--k;
 			heapify(a, k, 1);
 		}
+	}
+
+	public static void main(String[] args) {
+		int[] arr = new int[]{0, 3, 1, 2, 5, 4, 6};
+		sort(arr, 6);
+		Printer.printArray(arr);
 	}
 }
