@@ -9,6 +9,15 @@ import com.leokongwq.geektime.Printer;
  * 堆是一种特殊的树。只要满足这两点，它就是一个堆
  * 1. 堆是一个完全二叉树；
  * 2. 堆中每一个节点的值都必须大于等于（或小于等于）其子树中每个节点的值。
+ *
+ * 堆可以实现：优先级队列、求 Top K 和求中位数。
+ * 很对数据结构和算法都依赖堆：赫夫曼编码、图的最短路径、最小生成树算法
+ * Java： PriorityQueue
+ * C++： priority_queue
+ *
+ * 常见面试题：
+ * 1. 合并有序小文件
+ * 2. 高性能定时器
  **/
 public class ArrayHeap {
 
