@@ -21,28 +21,33 @@ public class BFMatcher {
 	/**
 	 *  判断 pattern 是否在 target 里面
 	 */
-	private static boolean match(String target, String pattern) {
+	private static int match(String target, String pattern) {
 		int n = target.length();
 		int m = pattern.length();
 		if (m > n) {
-			return false;
+			return -1;
 		}
 
 		for (int i = 0; i <= n - m; i++) {
 			int k = 0;
-			while (k < m && target.charAt(i + k) == pattern.charAt(k)) {
-				k++;
+			for (int j = 0; j < m; j++) {
+				if (target.charAt(i + j) == pattern.charAt(j)) {
+					k++;
+				} else {
+					break;
+				}
 			}
 			if (k == m) {
-				return true;
+				return i;
 			}
 		}
-		return false;
+		return -1;
 	}
 
 	public static void main(String[] args) {
 		System.out.println(match("abc", "a"));
 		System.out.println(match("abc", "b"));
 		System.out.println(match("abc", "c"));
+		System.out.println(match("abc", "d"));
 	}
 }
