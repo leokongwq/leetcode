@@ -1,4 +1,4 @@
-package com.leokongwq.geektime.graph;
+package com.leokongwq.geektime.advanced;
 
 import lombok.Data;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * <p>
  * 单源最短路径 Dijkstra 算法（一个顶点到一个顶点）。提到最短路径算法，最出名的莫过于 Dijkstra 算法了
  **/
-public class WeightGraph {
+public class ShortestPath {
 	/**
 	 * 邻接表, 数组的下标表示顶点的编号
 	 */
@@ -24,7 +24,7 @@ public class WeightGraph {
 	 */
 	private int v;
 
-	public WeightGraph(int v) {
+	public ShortestPath(int v) {
 		this.v = v;
 		this.adj = new LinkedList[v];
 		for (int i = 0; i < v; ++i) {
@@ -296,7 +296,7 @@ public class WeightGraph {
 	}
 
 	public static void main(String[] args) {
-		WeightGraph weightGraph = new WeightGraph(4);
+		ShortestPath weightGraph = new ShortestPath(4);
 		weightGraph.addEdge(0, 1, 5);
 		weightGraph.addEdge(0, 2, 15);
 		weightGraph.addEdge(1, 3, 5);
@@ -306,7 +306,7 @@ public class WeightGraph {
 		weightGraph.dijkstra(0, 3);
 		System.out.println();
 
-		WeightGraph weightGraphDijkstra = new WeightGraph(6);
+		ShortestPath weightGraphDijkstra = new ShortestPath(6);
 
 		weightGraphDijkstra.addEdge(0, 1, 10);
 		weightGraphDijkstra.addEdge(0, 4, 15);

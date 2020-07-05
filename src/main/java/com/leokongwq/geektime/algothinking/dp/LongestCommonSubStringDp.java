@@ -4,11 +4,20 @@ package com.leokongwq.geektime.algothinking.dp;
  * @author : jiexiu
  * @date : 2020-07-01 18:12
  * 最长公共子串不连续
+ *
+ * 动态规划
+ *
+ * maxlcs[i][j] 的含义是：对于 s1[0..i] 和 s2[0..j]，它们的 LCS 长度是 maxlcs[i][j]。
+ *
+ *
  **/
 public class LongestCommonSubStringDp {
 
 	public int lcs(char[] a, int n, char[] b, int m) {
+		//第一步：定义状态表
 		int[][] maxlcs = new int[n][m];
+
+		// 第二步：计算初始状态
 		//初始化第0行：a[0..0]与b[0..j]的maxlcs
 		for (int j = 0; j < m; ++j) {
 			if (a[0] == b[j]) {
@@ -30,7 +39,7 @@ public class LongestCommonSubStringDp {
 			}
 		}
 
-		// 填表
+		// 找状态转移方程，填表
 		for (int i = 1; i < n; ++i) {
 			for (int j = 1; j < m; ++j) {
 				if (a[i] == b[j]) {
@@ -45,9 +54,15 @@ public class LongestCommonSubStringDp {
 
 	private int max(int x, int y, int z) {
 		int maxv = Integer.MIN_VALUE;
-		if (x > maxv) maxv = x;
-		if (y > maxv) maxv = y;
-		if (z > maxv) maxv = z;
+		if (x > maxv) {
+			maxv = x;
+		}
+		if (y > maxv) {
+			maxv = y;
+		}
+		if (z > maxv) {
+			maxv = z;
+		}
 		return maxv;
 	}
 
