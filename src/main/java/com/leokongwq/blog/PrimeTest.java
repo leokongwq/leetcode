@@ -1,7 +1,5 @@
 package com.leokongwq.blog;
 
-import jdk.management.resource.internal.inst.FileOutputStreamRMHooks;
-
 import java.util.*;
 
 /**
@@ -22,7 +20,9 @@ public class PrimeTest {
         primes.add(2);
         for(int i = 3; i <= n; i+=2) {
             for(int j = 0; j < primes.size(); j++) {
-                if(i % primes.get(j) == 0)  break;
+                if(i % primes.get(j) == 0) {
+                    break;
+                }
                 if(j == primes.size() - 1) { primes.add(i); break; }
             }
         }
