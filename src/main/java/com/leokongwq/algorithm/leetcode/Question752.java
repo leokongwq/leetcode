@@ -1,5 +1,7 @@
 package com.leokongwq.algorithm.leetcode;
 
+import java.util.*;
+
 /**
  * @author : jiexiu
  * @date : 2020-07-07 21:03
@@ -48,8 +50,87 @@ package com.leokongwq.algorithm.leetcode;
  **/
 public class Question752 {
 
-	public int openLock(String[] deadends, String target) {
+	private List<String> turnUp(String current) {
+		List<String> result = new ArrayList<>(current.length());
+		for (int i = 0; i < current.length(); i++) {
+			char[] chars = current.toCharArray();
+			if (chars[i] == '9') {
+				chars[i] = '0';
+			} else {
+				chars[i] += 1;
+			}
+			result.add(new String(chars));
+		}
+		return result;
+	}
 
+	private List<String> turnDown(String current) {
+		List<String> result = new ArrayList<>(current.length());
+		for (int i = 0; i < current.length(); i++) {
+			char[] chars = current.toCharArray();
+			if (chars[i] == '0') {
+				chars[i] = '9';
+			} else {
+				chars[i] -= 1;
+			}
+			result.add(new String(chars));
+		}
+		return result;
+	}
+
+	public int openLock(String[] deadends, String target) {
+		// 记录需要跳过的死亡密码
+		Set<String> deads = new HashSet<>();
+		Collections.addAll(deads, deadends);
+
+		Queue<String> queue = new LinkedList<>();
+		queue.offer("0000");
+		int depth = 0;
+		Map<String, String> visited = new HashMap<>();
+		visited.put("0000", "1");
+
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < size; i ++) {
+				String temp = queue.poll();
+
+				// 判断是否到达终点
+				if (deads.contains(temp)) {
+					continue;
+				}
+
+				if (temp.equals(target)) {
+					return depth;
+				}
+
+				for (String str : turnUp(temp)) {
+					if (visited.get(str) != null) {
+						continue;
+					}
+					visited.put(temp, "1");
+					queue.offer(str);
+				}
+				for (String str : turnDown(temp)) {
+					if (visited.get(str) != null) {
+						continue;
+					}
+					visited.put(temp, "1");
+					queue.offer(str);
+				}
+			}
+			depth++;
+		}
 		return -1;
+	}
+
+	public static void main(String[] args) {
+		Question752 question752 = new Question752();
+
+//		int res = question752.openLock(new String[] {"0201","0101","0102","1212","2002"}, "0202");
+//		int res = question752.openLock(new String[] {"8888"}, "0009");
+		int res = question752.openLock(new String[] {"8887","8889","8878","8898","8788","8988","7888","9888"}, "8888");
+//		int res = question752.openLock(new String[] {"0000"}, "8888");
+
+		System.out.println(res);
 	}
 }
