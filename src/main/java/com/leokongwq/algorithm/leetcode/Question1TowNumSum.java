@@ -27,7 +27,7 @@ public class Question1TowNumSum {
                 }
             }
         }
-        return null;
+        return new int[] {-1, -1};
     }
 
     /**
@@ -49,22 +49,7 @@ public class Question1TowNumSum {
                 map.put(nums[i], i);
             }
         }
-        return null;
-    }
-
-    /**
-     * 不用单独将所有的元素放入map, 边遍历,边插入
-     */
-    private static int[] twoSumV3(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-            if (map.containsKey(complement)) {
-                return new int[] { map.get(complement), i };
-            }
-            map.put(nums[i], i);
-        }
-        throw new IllegalArgumentException("No two sum solution");
+        return new int[] {-1, -1};
     }
 
     /**
@@ -86,7 +71,7 @@ public class Question1TowNumSum {
                     continue;
                 }
                 int complement = towSum - nums[j];
-                if (map.containsKey(complement)) {
+                if (map.containsKey(complement) && map.get(complement) != j) {
                     System.out.println(a + " + " + nums[j] + " + " + nums[map.get(complement)] + " = " + target);
                 } else {
                     map.put(nums[j], j);
@@ -105,10 +90,6 @@ public class Question1TowNumSum {
 
         start = System.currentTimeMillis();
         result = twoSumV2(arr, 8);
-        System.out.println("耗时: " + (System.currentTimeMillis()  - start));
-        System.out.println(result[0] + "+" + result[1]);
-
-        result = twoSumV3(arr, 11);
         System.out.println("耗时: " + (System.currentTimeMillis()  - start));
         System.out.println(result[0] + "+" + result[1]);
 

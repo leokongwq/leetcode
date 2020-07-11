@@ -1,6 +1,6 @@
 package com.leokongwq.geektime.sort;
 
-import com.leokongwq.geektime.Printer;
+import com.leokongwq.algorithm.geektime.Printer;
 
 /**
  * @author jiexiu
