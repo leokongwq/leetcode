@@ -16,14 +16,14 @@ public class IsSingleLinkedListHasCycle {
      * @return
      */
     public static boolean isLinkedListHasCycle(ListNode head){
-        if (head == null || head.getNext() == null){
+        if (head == null || head.next == null){
             return false;
         }
         ListNode slow = head;
         ListNode fast = head;
-        while (fast != null && fast.getNext() != null){
-            slow = slow.getNext();
-            fast = fast.getNext().getNext();
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
             if (fast == slow){
                 return true;
             }

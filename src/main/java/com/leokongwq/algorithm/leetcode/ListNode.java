@@ -1,9 +1,9 @@
 package com.leokongwq.algorithm.leetcode;
 
 public class ListNode {
-    private int val;
+    public int val;
 
-    private ListNode next;
+    public ListNode next;
 
     public ListNode(int val) {
         this.val = val;
@@ -12,22 +12,6 @@ public class ListNode {
     public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
-    }
-
-    public void setVal(int val) {
-        this.val = val;
-    }
-
-    public void setNext(ListNode next) {
-        this.next = next;
-    }
-
-    public int getVal() {
-        return val;
-    }
-
-    public ListNode getNext() {
-        return next;
     }
 
     @Override

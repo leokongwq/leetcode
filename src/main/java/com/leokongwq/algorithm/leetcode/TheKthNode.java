@@ -20,15 +20,15 @@ public class TheKthNode {
         //fast 哨兵往前走k步
         int i = 0;
         for (; i < k && fast != null; i++){
-            fast = fast.getNext();
+            fast = fast.next;
         }
         if (i < k){ //链表长度不够
             return null;
         }
         //同步往前走
         while (fast != null){
-            slow = slow.getNext();
-            fast = fast.getNext();
+            slow = slow.next;
+            fast = fast.next;
         }
         return slow;
     }

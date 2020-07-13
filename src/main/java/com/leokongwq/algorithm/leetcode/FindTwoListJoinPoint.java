@@ -27,12 +27,12 @@ public class FindTwoListJoinPoint {
         ListNode endNodeTwo = headTwo;
         int lenA = 1;
         int lenB = 1;
-        while (endNodeOne.getNext() != null){
-            endNodeOne = endNodeOne.getNext();
+        while (endNodeOne.next != null){
+            endNodeOne = endNodeOne.next;
             lenA++;
         }
-        while (endNodeTwo.getNext() != null){
-            endNodeTwo = endNodeTwo.getNext();
+        while (endNodeTwo.next != null){
+            endNodeTwo = endNodeTwo.next;
             lenB++;
         }
         //2个链表不相交
@@ -45,18 +45,18 @@ public class FindTwoListJoinPoint {
         ListNode q = headTwo;
         if (num > 0){ //a链表长, 则a链表先走num 步
             while (num-- > 0){
-                p = p.getNext();
+                p = p.next;
             }
         }
         if (num < 0){
             while (num-- > 0){
-                q = q.getNext();
+                q = q.next;
             }
         }
         // p q 没有相遇
         while (p != q){
-            p = p.getNext();
-            q = q.getNext();
+            p = p.next;
+            q = q.next;
         }
         return p;
     }

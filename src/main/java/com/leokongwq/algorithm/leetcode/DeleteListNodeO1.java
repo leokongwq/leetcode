@@ -24,24 +24,24 @@ public class DeleteListNodeO1 {
         }
         //删除第一个节点
         if (listNode == target){
-            ListNode tmp = listNode.getNext();
+            ListNode tmp = listNode.next;
             listNode = tmp;
             return listNode;
         }
         //不是最后一个节点
-        if (target.getNext() != null){
-            ListNode tmp = target.getNext();
-            target.setVal(tmp.getVal());
-            target.setNext(tmp.getNext());
+        if (target.next != null){
+            ListNode tmp = target.next;
+            target.val = tmp.val;
+            target.next = tmp.next;
             tmp = null;
             return listNode;
         }
         //查询target的前一个节点
         ListNode cur = listNode;
-        while (cur.getNext() != target){
-            cur = cur.getNext();
+        while (cur.next != target){
+            cur = cur.next;
         }
-        cur.setNext(null);
+        cur.next = null;
         target = null;
         return listNode;
     }
@@ -50,7 +50,7 @@ public class DeleteListNodeO1 {
         if (node == null){
             return newNode;
         }
-        newNode.setNext(node);
+        newNode.next = node;
         return newNode;
     }
 

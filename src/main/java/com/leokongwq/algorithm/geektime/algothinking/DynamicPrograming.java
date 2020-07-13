@@ -1,4 +1,4 @@
-package com.leokongwq.algorithm.thingking;
+package com.leokongwq.algorithm.geektime.algothinking;
 
 /**
  * @author jiexiu

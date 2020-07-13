@@ -26,11 +26,11 @@ public class IfTowLinkedListHaveJoinNode {
         ListNode endNodeOne = headOne;
         ListNode endNodeTwo = headTwo;
 
-        while (endNodeOne.getNext() != null){
-            endNodeOne = endNodeOne.getNext();
+        while (endNodeOne.next != null){
+            endNodeOne = endNodeOne.next;
         }
-        while (endNodeTwo.getNext() != null){
-            endNodeTwo = endNodeTwo.getNext();
+        while (endNodeTwo.next != null){
+            endNodeTwo = endNodeTwo.next;
         }
         if (endNodeOne == endNodeTwo){
             return true;
@@ -50,7 +50,7 @@ public class IfTowLinkedListHaveJoinNode {
         ListNode endNodeOne = headOne;
         while (endNodeOne != null){
             oneListNodes.add(endNodeOne);
-            endNodeOne = endNodeOne.getNext();
+            endNodeOne = endNodeOne.next;
         }
         ListNode endNodeTwo = headTwo;
         while (endNodeTwo != null){

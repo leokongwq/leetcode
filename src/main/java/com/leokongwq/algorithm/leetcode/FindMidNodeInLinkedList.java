@@ -28,9 +28,9 @@ public class FindMidNodeInLinkedList {
         }
         //两个都从头开始走
         ListNode slow = head, fast = head;
-        while (fast != null && fast.getNext() != null){
-            slow = slow.getNext();
-            fast = fast.getNext().getNext();
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
         return slow;
     }
