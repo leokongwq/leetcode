@@ -245,7 +245,7 @@ public class SkipList2 {
         @Override
         public String toString() {
             StringBuilder builder = new StringBuilder();
-            builder.append("{ data: ");
+            builder.append("{ val: ");
             builder.append(data);
             builder.append("; levels: ");
             builder.append(maxLevel);
@@ -284,8 +284,8 @@ public class SkipList2 {
          * 1:2-------2:2-------		     4:2-------5:2-------6:2-------7:2-------8:2-------
          * 1:1-------2:1-------3:1-------4:1-------5:1-------6:1-------7:1-------8:1-------
          * 1:0-------2:0-------3:0-------4:0-------5:0-------6:0-------7:0-------8:0-------
-         * { data: 1; levels: 3 } { data: 2; levels: 3 } { data: 3; levels: 2 } { data: 4; levels: 4 }
-         * { data: 5; levels: 10 } { data: 6; levels: 4 } { data: 7; levels: 4 } { data: 8; levels: 5 }
+         * { val: 1; levels: 3 } { val: 2; levels: 3 } { val: 3; levels: 2 } { val: 4; levels: 4 }
+         * { val: 5; levels: 10 } { val: 6; levels: 4 } { val: 7; levels: 4 } { val: 8; levels: 5 }
          */
         // 优化后insert()
 

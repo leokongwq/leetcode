@@ -8,6 +8,19 @@ import java.util.PriorityQueue;
 /**
  * @author : jiexiu
  * @date : 2020-06-19 17:39
+ *
+ * 合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
+ *
+ * 示例:
+ *
+ * 输入:
+ * [
+ *   1->4->5,
+ *   1->3->4,
+ *   2->6
+ * ]
+ * 输出: 1->1->2->3->4->4->5->6
+ *
  **/
 public class MergeKSortedList {
 
@@ -25,9 +38,12 @@ public class MergeKSortedList {
 	 * 暴力解法
 	 */
 	private static ListNode mergeKListsV1(ListNode[] lists) {
-		if (lists == null || lists.length == 1) {
-			return null;
+		if (lists == null) {
+            return null;
 		}
+		if (lists.length == 1) {
+            return lists[0];
+        }
 		List<Integer> result = new ArrayList<>();
 		for (int i = 0; i < lists.length; i++) {
 			ListNode node = lists[i];

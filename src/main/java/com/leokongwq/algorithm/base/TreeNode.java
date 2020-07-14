@@ -5,11 +5,17 @@ package com.leokongwq.algorithm.base;
  */
 public class TreeNode {
 
-	public int data;
+	public int val;
 	public TreeNode left;
 	public TreeNode right;
 
 	public TreeNode(int data) {
-		this.data = data;
+		this.val = data;
+	}
+
+	public TreeNode(int val, TreeNode left, TreeNode right) {
+		this.val = val;
+		this.left = left;
+		this.right = right;
 	}
 }

@@ -119,7 +119,7 @@ public class SkipListV1 {
         @Override
         public String toString() {
             StringBuilder builder = new StringBuilder();
-            builder.append("{ data: ");
+            builder.append("{ val: ");
             builder.append(data);
             builder.append("; levels: ");
             builder.append(maxLevel);

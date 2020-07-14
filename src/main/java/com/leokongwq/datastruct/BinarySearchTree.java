@@ -105,7 +105,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
     }
 
     /**
-     * 将元素 data 插入到树中
+     * 将元素 val 插入到树中
      */
     private BinaryNode<T> insertInternal(BinaryNode<T> node, T data) {
         if (node == null) {

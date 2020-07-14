@@ -37,7 +37,7 @@ public class BTree<Key extends Comparable<Key>, Value>  {
     private int height;      // height of the B-tree
     private int n;           // number of key-value pairs in the B-tree
 
-    // helper B-tree node data type
+    // helper B-tree node val type
     private static final class Node {
         private int m;                             // number of children
         private Entry[] children = new Entry[M];   // the array of children
@@ -253,7 +253,7 @@ public class BTree<Key extends Comparable<Key>, Value>  {
 
 
     /**
-     * Unit tests the {@code BTree} data type.
+     * Unit tests the {@code BTree} val type.
      *
      * @param args the command-line arguments
      */

@@ -24,7 +24,7 @@ public class RecursiveTree {
 		}
 
 		for (int i = 0; i < k; ++i) {
-			//最后一位从 data[i] 到 data[k-1]
+			//最后一位从 val[i] 到 val[k-1]
 			int tmp = data[i];
 			data[i] = data[k - 1];
 			data[k - 1] = tmp;
