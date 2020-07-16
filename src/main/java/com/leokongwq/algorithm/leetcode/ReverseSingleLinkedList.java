@@ -22,10 +22,6 @@ public class ReverseSingleLinkedList {
 
 	/**
 	 * 反转单链表, 最简单, 需要使用数组, 空间占用大, 一般不会推荐使用
-	 *
-	 * @param head
-	 * @param n
-	 * @return
 	 */
 	public static ListNode reverseListV1(ListNode head, int n) {
 		ListNode[] arr = new ListNode[n];
@@ -44,9 +40,6 @@ public class ReverseSingleLinkedList {
 
 	/**
 	 * 反转单链表, 采用p , q 两个指针, 从第二个节点开始, 逐个节点进行反转; 不需要分配额外的空间, 可以采用
-	 *
-	 * @param head
-	 * @return
 	 */
 	public static ListNode reverseListV2(ListNode head) {
 		if (head == null || head.next == null) {
@@ -69,9 +62,6 @@ public class ReverseSingleLinkedList {
 	/**
 	 * 反转单链表, 新建一个链表, 将老列表的每一个节点作为新链表的第一个节点, 需要额外的空间;
 	 * 新链表建立完成后,可以释放掉老列表的空间
-	 *
-	 * @param head
-	 * @return
 	 */
 	public static ListNode reverseListV3(ListNode head) {
 		if (head == null || head.next == null) {
@@ -89,8 +79,7 @@ public class ReverseSingleLinkedList {
 	}
 
 	/**
-	 * @param head
-	 * @return
+	 * 反转单链表
 	 */
 	public static ListNode reverseListV4(ListNode head) {
 		if (head == null || head.next == null) {
@@ -111,9 +100,6 @@ public class ReverseSingleLinkedList {
 
 	/**
 	 * 递归方式翻转单链表
-	 *
-	 * @param head
-	 * @return
 	 */
 	public static ListNode reverseByRecursion(ListNode head) {
 		if (head == null || head.next == null) {

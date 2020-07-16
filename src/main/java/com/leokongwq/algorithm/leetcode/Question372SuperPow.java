@@ -62,15 +62,24 @@ public class Question372SuperPow {
      * 计算 a 的 k 次方的结果
      */
     private int mypow(int a, int k) {
+        if (k == 0) {
+            return 1;
+        }
         // 对因子求模
         a %= base;
-        int res = 1;
-        for (int i = 0; i < k; i++) {
-            // 这里有乘法，是潜在的溢出点
-            res *= a;
-            // 对乘法结果求模
-            res %= base;
+        if (k % 2 == 1) {
+            // k 是奇数
+            return (a * mypow(a, k - 1)) % base;
+        } else {
+            // k 是偶数
+            int sub = mypow(a, k / 2);
+            return (sub * sub) % base;
         }
-        return res;
+    }
+
+    public static void main(String[] args) {
+        Question372SuperPow superPow = new Question372SuperPow();
+        System.out.println(superPow.superPow(2, new int[]{1}));
+        System.out.println(superPow.superPow(2, new int[]{1, 0}));
     }
 }
