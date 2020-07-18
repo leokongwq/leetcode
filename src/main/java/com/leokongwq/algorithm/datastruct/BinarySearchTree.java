@@ -1,4 +1,4 @@
-package com.leokongwq.datastruct;
+package com.leokongwq.algorithm.datastruct;
 
 /**
  * Created with IntelliJ IDEA.

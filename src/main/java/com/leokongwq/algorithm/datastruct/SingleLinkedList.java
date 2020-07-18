@@ -1,6 +1,4 @@
-package com.leokongwq.datastruct;
-
-import java.io.IOException;
+package com.leokongwq.algorithm.datastruct;
 
 /**
  * Created with IntelliJ IDEA.

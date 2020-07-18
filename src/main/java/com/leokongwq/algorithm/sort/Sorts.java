@@ -1,6 +1,4 @@
-package com.leokongwq.geektime.sort;
-
-import java.util.Arrays;
+package com.leokongwq.algorithm.sort;
 
 /**
  * 冒泡，选择，插入，快速，归并

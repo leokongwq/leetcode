@@ -1,9 +1,8 @@
-package com.leokongwq.datastruct;
+package com.leokongwq.algorithm.datastruct;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * Created with IntelliJ IDEA.

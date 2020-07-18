@@ -1,4 +1,4 @@
-package com.leokongwq.geektime.sort;
+package com.leokongwq.algorithm.sort;
 
 /**
  * @author jiexiu

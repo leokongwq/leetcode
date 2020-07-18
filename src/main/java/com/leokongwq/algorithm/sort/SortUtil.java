@@ -1,4 +1,4 @@
-package com.leokongwq.geektime.sort;
+package com.leokongwq.algorithm.sort;
 
 /**
  * @author jiexiu
@@ -11,7 +11,7 @@ public class SortUtil {
      * 1. 小于 i 的是 小于 pivot 的部分
      * 2. 大于等于 i 的是待分区的部分
      */
-    static int partition(int[] arr, int p, int r, boolean desc) {
+    public static int partition(int[] arr, int p, int r, boolean desc) {
         int pivot = arr[r];
         int i = p;
 
