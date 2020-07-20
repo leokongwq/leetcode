@@ -56,6 +56,7 @@ public class Question268MissingNumber {
     private static int missingNumberV1(int[] nums) {
         int len = nums.length;
         int sumExp = len * (len + 1) / 2;
+
         int sum = 0;
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
@@ -63,7 +64,27 @@ public class Question268MissingNumber {
         return sumExp - sum;
     }
 
+    /**
+     * 利用位操作
+     * 1.一个数和本身进行按位异或结果为0
+     * 2.一个数和0进行异或操作结果为本身
+     * 3.异或操作满足交换律和结合律： 2 ^ 3 ^ 2 = 3 ^ (2 ^ 2) = 3 ^ 0 = 3
+     */
+    private static int missingNumberV2(int[] nums) {
+        int res = 0;
+
+        // 先和新补的索引异或一下
+        res = res ^ nums.length;
+
+        for (int i = 0; i < nums.length; i++) {
+            res ^= (i ^ nums[i]);
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
+        System.out.println(missingNumber(new int[]{0, 1, 3}));
         System.out.println(missingNumberV1(new int[]{0, 1, 3}));
+        System.out.println(missingNumberV2(new int[]{0, 1, 3}));
     }
 }
