@@ -24,7 +24,10 @@ import java.util.Map;
  */
 public class Question645FindErrorNums {
 
-
+    /**
+     * 时间复杂度 O(N)
+     * 空间复杂度 O(N)
+     */
     public int[] findErrorNums(int[] nums) {
         if (nums == null) {
             return new int[0];
@@ -50,6 +53,89 @@ public class Question645FindErrorNums {
         }
 
         return res;
+    }
+
+    /**
+     * 时间复杂度：O(nlogN)
+     *
+     * 空间复杂度：O(nlogN)
+     */
+    public int[] findErrorNumsV1(int[] nums) {
+        Arrays.sort(nums);
+        int dup = -1, missing = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                dup = nums[i];
+            } else if (nums[i] > nums[i - 1] + 1) {
+                missing = nums[i - 1] + 1;
+            }
+        }
+        return new int[] {dup, nums[nums.length - 1] != nums.length ? nums.length : missing};
+    }
+
+    public int[] findErrorNumsV2(int[] nums) {
+        int[] arr = new int[nums.length + 1];
+        int dup = -1, missing = 1;
+        for (int i = 0; i < nums.length; i++) {
+            arr[nums[i]] += 1;
+        }
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                missing = i;
+            } else if (arr[i] == 2) {
+                dup = i;
+            }
+        }
+        return new int[]{dup, missing};
+    }
+
+    public int[] findErrorNumsV3(int[] nums) {
+        int dup = -1, missing = 1;
+        for (int n : nums) {
+            if (nums[Math.abs(n) - 1] < 0) {
+                dup = Math.abs(n);
+            } else {
+                nums[Math.abs(n) - 1] *= -1;
+            }
+        }
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                missing = i + 1;
+            }
+        }
+        return new int[]{dup, missing};
+    }
+
+    public int[] findErrorNumsV4(int[] nums) {
+        int xor = 0, xor0 = 0, xor1 = 0;
+        for (int n: nums) {
+            xor ^= n;
+        }
+        for (int i = 1; i <= nums.length; i++) {
+            xor ^= i;
+        }
+
+        int rightmostbit = xor & ~(xor - 1);
+        for (int n: nums) {
+            if ((n & rightmostbit) != 0) {
+                xor1 ^= n;
+            } else {
+                xor0 ^= n;
+            }
+        }
+        for (int i = 1; i <= nums.length; i++) {
+            if ((i & rightmostbit) != 0) {
+                xor1 ^= i;
+            } else {
+                xor0 ^= i;
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == xor0) {
+                return new int[]{xor0, xor1};
+            }
+        }
+        return new int[]{xor1, xor0};
     }
 
     public static void main(String[] args) {
