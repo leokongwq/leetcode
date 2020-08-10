@@ -19,24 +19,41 @@ public class Lc82 {
 		if (head == null || head.next == null) {
 			return head;
 		}
+		ListNode dump = new ListNode(-1);
+		ListNode tail = dump;
+
 		ListNode p = head;
+		ListNode pre = head;
 		ListNode q = head.next;
 		while (q != null) {
 			if (p.val != q.val) {
-				p = p.next;
-				p.val = q.val;
+				pre.next = null;
+				p = q;
+				q = q.next;
+				pre = p;
+				p.next = null;
+
+				tail.next = p;
+				tail = tail.next;
+
+				p = q;
+				pre = p;
+				if (q != null) {
+					q = q.next;
+				}
+			} else {
+				pre = pre.next;
+				q = q.next;
 			}
-			q = q.next;
 		}
-		p.next = null;
-		return head;
+		return dump.next;
 	}
 
 	public static void main(String[] args) {
 		Lc82 lc82 = new Lc82();
 		ListNode head = new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3)))));
-		lc82.removeDupNode(head);
+		ListNode newHead = lc82.removeDupNode(head);
 
-		Printer.printList(head);
+		Printer.printList(newHead);
 	}
 }

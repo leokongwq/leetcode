@@ -1,6 +1,6 @@
 package com.leokongwq.algorithm.leetcode;
 
-import com.leokongwq.algorithm.geektime.Printer;
+import com.leokongwq.algorithm.base.Printer;
 
 import java.util.Arrays;
 import java.util.HashMap;
