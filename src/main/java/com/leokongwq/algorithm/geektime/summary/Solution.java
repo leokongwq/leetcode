@@ -1,6 +1,6 @@
 package com.leokongwq.algorithm.geektime.summary;
 
-import com.leokongwq.algorithm.geektime.Printer;
+import com.leokongwq.algorithm.base.Printer;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -2,7 +2,7 @@ package com.leokongwq.algorithm.geektime.algothinking.greedy;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.leokongwq.algorithm.geektime.Printer;
+import com.leokongwq.algorithm.base.Printer;
 import lombok.Data;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.RandomUtils;

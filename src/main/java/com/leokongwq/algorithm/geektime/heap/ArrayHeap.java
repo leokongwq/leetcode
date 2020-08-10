@@ -1,6 +1,6 @@
 package com.leokongwq.algorithm.geektime.heap;
 
-import com.leokongwq.algorithm.geektime.Printer;
+import com.leokongwq.algorithm.base.Printer;
 
 /**
  * @author : jiexiu

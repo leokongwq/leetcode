@@ -1,4 +1,6 @@
-package com.leokongwq.algorithm.geektime;
+package com.leokongwq.algorithm.base;
+
+import com.leokongwq.algorithm.leetcode.ListNode;
 
 import java.util.Arrays;
 
@@ -15,5 +17,13 @@ public class Printer {
         Arrays.stream(arr).forEach(System.out::println);
 
         System.out.println("+++++++++++++++++++++++++++++++++++++++");
+    }
+
+    public static void printList(ListNode head) {
+        while (head != null) {
+            System.out.print(head.val + ",");
+            head = head.next;
+        }
+        System.out.println();
     }
 }
