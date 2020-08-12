@@ -9,7 +9,7 @@ import com.leokongwq.algorithm.leetcode.ListNode;
  *
  * medium
  *
- * 删除链表倒数第n个节点
+ * 删除链表倒数第k个节点
  **/
 public class Lc19 {
 

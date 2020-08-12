@@ -3,6 +3,9 @@ package com.leokongwq.algorithm.leetcode.linkedlist;
 import com.leokongwq.algorithm.base.Printer;
 import com.leokongwq.algorithm.leetcode.ListNode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author : jiexiu
  * @date : 2020-08-10 20:37
@@ -15,44 +18,36 @@ import com.leokongwq.algorithm.leetcode.ListNode;
  **/
 public class Lc82 {
 
-	public ListNode removeDupNode(ListNode head) {
-		if (head == null || head.next == null) {
-			return head;
+	Map<Integer, Integer> numTimes = new HashMap<>();
+
+	public ListNode deleteDuplicates(ListNode head) {
+		if (head == null) {
+			return null;
 		}
-		ListNode dump = new ListNode(-1);
-		ListNode tail = dump;
 
-		ListNode p = head;
-		ListNode pre = head;
-		ListNode q = head.next;
-		while (q != null) {
-			if (p.val != q.val) {
-				pre.next = null;
-				p = q;
-				q = q.next;
-				pre = p;
-				p.next = null;
+		numTimes.put(head.val, numTimes.getOrDefault(head.val, 0) + 1);
 
-				tail.next = p;
-				tail = tail.next;
+		if (head.next == null) {
+		    if (numTimes.get(head.val) > 1) {
+		        return head.next;
+            } else {
+		        return head;
+            }
+        }
+        ListNode node = deleteDuplicates(head.next);
+		head.next = node;
 
-				p = q;
-				pre = p;
-				if (q != null) {
-					q = q.next;
-				}
-			} else {
-				pre = pre.next;
-				q = q.next;
-			}
-		}
-		return dump.next;
+		if (numTimes.get(head.val) > 1) {
+            return head.next;
+        } else {
+		    return head;
+        }
 	}
 
 	public static void main(String[] args) {
 		Lc82 lc82 = new Lc82();
 		ListNode head = new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3)))));
-		ListNode newHead = lc82.removeDupNode(head);
+		ListNode newHead = lc82.deleteDuplicates(head);
 
 		Printer.printList(newHead);
 	}

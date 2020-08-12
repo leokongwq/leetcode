@@ -58,7 +58,7 @@ ListNode detectCycle(ListNode head) {
 ```
 
 第一次相遇时，假设慢指针 slow 走了 k 步，那么快指针 fast 一定走了 2k 步，也就是说比 slow 多走了 k 步（也就是环的长度）
-
+原因是：相遇点fast节点已经经过一次，相遇时是第二次或n次经过
 ![avatar](https://gblobscdn.gitbook.com/assets%2F-LrtQOWSnDdXhp3kYN4k%2Fsync%2F7d7bd77193ff8a732f7ce545e4451213949dc36c.png?alt=media)
 
 设相遇点距环的起点的距离为 m，那么环的起点距头结点 head 的距离为 k - m，也就是说如果从 head 前进 k - m 步就能到达环起点。

@@ -1,4 +1,6 @@
-package com.leokongwq.algorithm.leetcode;
+package com.leokongwq.algorithm.leetcode.linkedlist;
+
+import com.leokongwq.algorithm.leetcode.ListNode;
 
 /**
  * 2个没有环的单向链表, 查找2个链表的相交点, 如果2个不相交, 则返回null, 相交则返回相交点

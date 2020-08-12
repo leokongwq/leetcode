@@ -1,4 +1,6 @@
-package com.leokongwq.algorithm.leetcode;
+package com.leokongwq.algorithm.leetcode.linkedlist;
+
+import com.leokongwq.algorithm.leetcode.ListNode;
 
 /**
  * 题目：给定链表的头指针和一个结点指针，在O(1)时间删除该结点。

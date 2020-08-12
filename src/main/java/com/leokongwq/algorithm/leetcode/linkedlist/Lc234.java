@@ -1,4 +1,6 @@
-package com.leokongwq.algorithm.leetcode;
+package com.leokongwq.algorithm.leetcode.linkedlist;
+
+import com.leokongwq.algorithm.leetcode.ListNode;
 
 /**
  * @author : jiexiu
@@ -20,7 +22,7 @@ package com.leokongwq.algorithm.leetcode;
  * 进阶：
  * 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
  **/
-public class Question234IsPalindromeLinkedList {
+public class Lc234 {
 
 	/**
 	 * 1. 通过翻转后的链表和原链表进行比较，如果每个值都相同那么就是回文链表
@@ -119,7 +121,7 @@ public class Question234IsPalindromeLinkedList {
     }
 
     public static void main(String[] args) {
-		Question234IsPalindromeLinkedList isPalindromeLinkedList = new Question234IsPalindromeLinkedList();
+		Lc234 isPalindromeLinkedList = new Lc234();
 //		ListNode head = new ListNode(1, new ListNode(2));
 //		ListNode head = new ListNode(1, new ListNode(2, new ListNode(3)));
 //		ListNode head = new ListNode(1, new ListNode(2, new ListNode(1)));

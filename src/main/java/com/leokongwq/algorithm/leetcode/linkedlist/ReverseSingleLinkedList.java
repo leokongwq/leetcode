@@ -1,4 +1,4 @@
-package com.leokongwq.algorithm.leetcode;
+package com.leokongwq.algorithm.leetcode.linkedlist;
 
 /**
  * Created with IntelliJ IDEA.

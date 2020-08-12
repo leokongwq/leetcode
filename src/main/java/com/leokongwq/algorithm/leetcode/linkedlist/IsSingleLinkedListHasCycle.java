@@ -1,4 +1,6 @@
-package com.leokongwq.algorithm.leetcode;
+package com.leokongwq.algorithm.leetcode.linkedlist;
+
+import com.leokongwq.algorithm.leetcode.ListNode;
 
 /**
  * 判断单链表是否存在环
@@ -12,8 +14,6 @@ public class IsSingleLinkedListHasCycle {
 
     /**
      * 算法的原理是: 只有链表有环, 则快的节点肯定会和慢的节点在环上相遇
-     * @param head
-     * @return
      */
     public static boolean isLinkedListHasCycle(ListNode head){
         if (head == null || head.next == null){

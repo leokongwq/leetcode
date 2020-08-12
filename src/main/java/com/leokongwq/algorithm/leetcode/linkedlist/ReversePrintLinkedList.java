@@ -1,4 +1,6 @@
-package com.leokongwq.algorithm.leetcode;
+package com.leokongwq.algorithm.leetcode.linkedlist;
+
+import com.leokongwq.algorithm.leetcode.ListNode;
 
 /**
  * @author : jiexiu
