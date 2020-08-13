@@ -13,7 +13,7 @@ import com.leokongwq.algorithm.leetcode.ListNode;
  **/
 public class Lc25 {
 
-	public ListNode reverse(ListNode head, int k) {
+	public ListNode reverseKGroup(ListNode head, int k) {
 		if (head == null || k <= 0) {
 			return head;
 		}
@@ -30,7 +30,7 @@ public class Lc25 {
 			return head;
 		}
 		ListNode newHead = rangeReverse(head, p);
-		head.next = reverse(p, k);
+		head.next = reverseKGroup(p, k);
 		return newHead;
 	}
 
