@@ -50,7 +50,7 @@ public class Lc25 {
 		Lc25 lc25 = new Lc25();
 		ListNode l = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
 
-		ListNode head = lc25.reverse(l, 1);
+		ListNode head = lc25.reverseKGroup(l, 1);
 //		ListNode head = lc25.reverse(l, 2);
 //		ListNode head = lc25.reverse(l, 3);
 		Printer.printList(head);
