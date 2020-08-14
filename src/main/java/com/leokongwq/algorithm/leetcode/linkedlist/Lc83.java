@@ -9,7 +9,7 @@ import com.leokongwq.algorithm.leetcode.ListNode;
  *
  * easy
  *
- * 删除链表中的重复元素
+ * 删除有序链表中的重复元素
  **/
 public class Lc83 {
 
