@@ -34,7 +34,7 @@ public class Lc25 {
 		return newHead;
 	}
 
-	private ListNode rangeReverse(ListNode start, ListNode end) {
+	public ListNode rangeReverse(ListNode start, ListNode end) {
 		ListNode pre = null;
 		ListNode cur = start;
 		while (cur != end) {

@@ -1,5 +1,7 @@
 package com.leokongwq.algorithm.leetcode.linkedlist;
 
+import com.leokongwq.algorithm.leetcode.ListNode;
+
 /**
  * Created with IntelliJ IDEA.
  * User: jiexiu
@@ -8,17 +10,6 @@ package com.leokongwq.algorithm.leetcode.linkedlist;
  * Email:leokongwq@gmail.com
  */
 public class ReverseSingleLinkedList {
-	static class ListNode {
-		private int val;
-
-		private ListNode next;
-
-		public ListNode(int val, ListNode next) {
-			this.val = val;
-			this.next = next;
-		}
-
-	}
 
 	/**
 	 * 反转单链表, 最简单, 需要使用数组, 空间占用大, 一般不会推荐使用

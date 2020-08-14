@@ -6,7 +6,7 @@ import com.leokongwq.algorithm.leetcode.ListNode;
  * 题目：给定链表的头指针和一个结点指针，在O(1)时间删除该结点。
  * 这是一道广为流传的Google面试题，能有效考察我们的编程基本功，
  * 还能考察我们的反应速度，更重要的是，还能考察我们对时间复杂度的理解
- *
+ * <p>
  * Created with IntelliJ IDEA.
  * User: jiexiu
  * Date: 16/8/19
@@ -17,8 +17,9 @@ public class DeleteListNodeO1 {
 
     /**
      * O(1) 时间删除列表节点
+     *
      * @param listNode 待删除的列表首节点,
-     * @param target 待删除的节点
+     * @param target   待删除的节点
      */
     public static ListNode deleteNode(ListNode listNode, ListNode target){
         if (listNode == null || target == null){
@@ -26,9 +27,9 @@ public class DeleteListNodeO1 {
         }
         //删除第一个节点
         if (listNode == target){
-            ListNode tmp = listNode.next;
-            listNode = tmp;
-            return listNode;
+            ListNode newHead = listNode.next;
+            listNode.next = null;
+            return newHead;
         }
         //不是最后一个节点
         if (target.next != null){
