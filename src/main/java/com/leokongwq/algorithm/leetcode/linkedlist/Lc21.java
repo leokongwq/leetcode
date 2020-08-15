@@ -13,31 +13,31 @@ import com.leokongwq.algorithm.leetcode.ListNode;
  **/
 public class Lc21 {
 
-	public ListNode mergeTwoSortedList(ListNode h1, ListNode h2) {
-		if (h1 == null) {
-			return h2;
+	public ListNode mergeTwoSortedList(ListNode l1, ListNode l2) {
+		if (l1 == null) {
+			return l2;
 		}
-		if (h2 == null) {
-			return h1;
+		if (l2 == null) {
+			return l1;
 		}
 		ListNode dump = new ListNode(Integer.MAX_VALUE);
 		ListNode tail = dump;
-		while (h1 != null && h2 != null) {
-			if (h1.val <= h2.val) {
-				tail.next = h1;
-				h1 = h1.next;
+		while (l1 != null && l2 != null) {
+			if (l1.val <= l2.val) {
+				tail.next = l1;
+				l1 = l1.next;
 				tail = tail.next;
 			} else {
-				tail.next = h2;
-				h2 = h2.next;
+				tail.next = l2;
+				l2 = l2.next;
 				tail = tail.next;
 			}
 		}
-		if (h1 != null) {
-			tail.next = h1;
+		if (l1 != null) {
+			tail.next = l1;
 		}
-		if (h2 != null) {
-			tail.next = h2;
+		if (l2 != null) {
+			tail.next = l2;
 		}
 		return dump.next;
 	}

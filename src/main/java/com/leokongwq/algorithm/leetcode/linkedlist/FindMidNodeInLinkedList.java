@@ -20,9 +20,6 @@ public class FindMidNodeInLinkedList {
      * 假设链表长度为: n  每次一步,从头开始走 n / 2 步就可以找到中点,
      * 如果每次2步, 则走 n / 2 步可以到达最后一个节点.所以fast节点走的同时, slow节点
      * 也在前进, fast节点到达最后节点时, slow节点也刚好走了 n / 2 步, slow节点就是中点
-     *
-     * @param head
-     * @return
      */
     public static ListNode findMidNode(ListNode head){
         if (head == null){
@@ -53,7 +50,5 @@ public class FindMidNodeInLinkedList {
         head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, null))));
         mid = findMidNode(head);
         System.out.println(mid);
-
-
     }
 }
