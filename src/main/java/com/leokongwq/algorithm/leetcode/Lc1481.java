@@ -6,9 +6,41 @@ import java.util.stream.Collectors;
 /**
  * @author : jiexiu
  * @date : 2020-06-16 23:50
+ *
+ * medium
+ *
+ * 给你一个整数数组 arr 和一个整数 k 。现需要从数组中恰好移除 k 个元素，请找出移除后数组中不同整数的最少数目。
+ *
+ *  
+ *
+ * 示例 1：
+ *
+ * 输入：arr = [5,5,4], k = 1
+ * 输出：1
+ * 解释：移除 1 个 4 ，数组中只剩下 5 一种整数。
+ * 示例 2：
+ *
+ * 输入：arr = [4,3,1,1,3,3,2], k = 3
+ * 输出：2
+ * 解释：先移除 4、2 ，然后再移除两个 1 中的任意 1 个或者三个 3 中的任意 1 个，最后剩下 1 和 3 两种整数。
+ *  
+ *
+ * 提示：
+ *
+ * 1 <= arr.length <= 10^5
+ * 1 <= arr[i] <= 10^9
+ * 0 <= k <= arr.length
+ *
  **/
-public class Question1481 {
+public class Lc1481 {
 
+	/**
+	 * 题解： 移除k个元素后，不同整数的个数最少，其实就是尽可能保留出现次数最多的整数。也就是优先删除出现次数最少的元素。
+	 *
+	 * 1. 统计所有整数出现的个数。
+	 * 2. 按出现的次数升序排列
+	 * 3. 删除前k个数
+	 */
 	private static int findLeastNumOfUniqueInts(int[] arr, int k) {
 		if (arr == null || arr.length <= k) {
 			return 0;
@@ -116,14 +148,10 @@ public class Question1481 {
 	}
 
 	private static int findLeastNumOfUniqueIntsV2(int[] arr, int k) {
+		// 计算每个数出现次数
 		Map<Integer, Integer> hm = new HashMap<>();
-		for (int i = 0; i < arr.length; i++) {
-			if (hm.containsKey(arr[i])) {
-				hm.put(arr[i], hm.get(arr[i]) + 1);
-			} else {
-				hm.put(arr[i], 1);
-			}
-		}
+		Arrays.stream(arr).forEach(num -> hm.put(num, hm.getOrDefault(num, 0) + 1));
+
 		if (k == 0) {
 			//如果k为0直接返回所有不同整数个数
 			return hm.size();

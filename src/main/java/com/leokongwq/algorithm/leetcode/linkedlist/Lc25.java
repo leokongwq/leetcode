@@ -14,12 +14,10 @@ import com.leokongwq.algorithm.leetcode.ListNode;
 public class Lc25 {
 
 	public ListNode reverseKGroup(ListNode head, int k) {
-		if (head == null || k <= 0) {
+		if (head == null || k <= 1) {
 			return head;
 		}
-		if (k == 1) {
-			return rangeReverse(head, null);
-		}
+
 		ListNode p = head;
 		int n = 0;
 		while (p != null && n < k) {
