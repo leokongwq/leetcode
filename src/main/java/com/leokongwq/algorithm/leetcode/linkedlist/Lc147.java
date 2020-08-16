@@ -1,5 +1,6 @@
 package com.leokongwq.algorithm.leetcode.linkedlist;
 
+import com.leokongwq.algorithm.base.Printer;
 import com.leokongwq.algorithm.leetcode.ListNode;
 
 /**
@@ -36,20 +37,50 @@ public class Lc147 {
 		if (head == null || head.next == null) {
 			return head;
 		}
-		ListNode dummy = new ListNode(-1);
+		ListNode dummy = new ListNode(Integer.MIN_VALUE);
 		dummy.next = head;
 
-		ListNode slow = head;
-		ListNode fast = head.next;
+		ListNode pre = head;
+		ListNode cur = head.next;
+		while (cur != null) {
+			if (cur.val < pre.val) {
+				pre.next = null;
+				ListNode next = cur.next;
+				cur.next = null;
+				//cur 插入排序链表中
+				ListNode p = dummy;
+				ListNode q = dummy.next;
 
-		while (fast != null) {
-			if (fast.val >= slow.val) {
-				fast = fast.next;
-				slow = slow.next;
+				while (q.val <= cur.val) {
+					q = q.next;
+					p = p.next;
+				}
+				cur.next = q;
+				p.next = cur;
+
+				cur = next;
 			} else {
-				//寻找合适位置
+				pre.next = cur;
+				pre = cur;
+				cur = cur.next;
 			}
 		}
-		return head;
+		return dummy.next;
+	}
+
+	public static void main(String[] args) {
+		Lc147 lc147 = new Lc147();
+//		ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(-3, new ListNode(-2)))));
+//		ListNode head = new ListNode(1, new ListNode(2, new ListNode(3)));
+//		ListNode head = new ListNode(3, new ListNode(2, new ListNode(1)));
+
+//		ListNode head = new ListNode(4, new ListNode(2, new ListNode(1, new ListNode(3))));
+
+		ListNode head = new ListNode(3, new ListNode(2, new ListNode(4)));
+
+
+		ListNode h = lc147.insertionSortList(head);
+
+		Printer.printList(h);
 	}
 }
