@@ -45,6 +45,7 @@ public class Lc92 {
 		return dump.next;
 	}
 
+
 	public static void main(String[] args) {
 		Lc92 lc92 = new Lc92();
 		ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));

@@ -13,21 +13,21 @@ import com.leokongwq.algorithm.leetcode.ListNode;
  **/
 public class Lc19 {
 
-	public ListNode removeKthNode(ListNode head, int k) {
+	public ListNode removeKthNode(ListNode head, int n) {
 		ListNode slow = head;
 		ListNode fast = head;
-		int n = 0;
-		while (fast != null && n < k) {
-			n++;
+		int m = 0;
+		while (fast != null && m < n) {
+			m++;
 			fast = fast.next;
 		}
 		if (fast == null) {
 			//不够
-			if (n < k) {
+			if (m < n) {
 				return head;
 			}
 			//删除头节点
-			if (n == k) {
+			if (m == n) {
 				ListNode p = head.next;
 				head.next = null;
 				return p;
@@ -37,7 +37,7 @@ public class Lc19 {
 				fast = fast.next;
 				slow = slow.next;
 			}
-			if (k == 1) {
+			if (n == 1) {
 				slow.next = null;
 				return head;
 			}
