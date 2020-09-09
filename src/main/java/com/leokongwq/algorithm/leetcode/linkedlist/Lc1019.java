@@ -36,5 +36,6 @@ public class Lc1019 {
 
 	public int[] nextLargerNodes(ListNode head) {
 
+		return null;
 	}
 }
